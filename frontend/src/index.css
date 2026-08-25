@@ -1,0 +1,23 @@
+@layer base {
+	html, body, #root {
+		height: 100%;
+	}
+	body {
+		margin: 0;
+		background: #ffffff;
+		color: #0f172a;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+* {
+    font-family: "Nunito", sans-serif;
+}
+/* Custom styles (keep minimal — Tailwind utilities preferred) */
+.hero .badge {
+	background: rgba(59,130,246,0.08);
+}
+
+/* Simple responsive container tweaks */
+.prose p { color: #334155 }
