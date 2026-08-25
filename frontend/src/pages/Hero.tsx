@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Globe, ArrowRight, ShieldCheck } from "lucide-react";
+import { Globe, ArrowRight, ShieldCheck, Loader2 } from "lucide-react";
+import toast from "react-hot-toast";
 import { primary_color } from "../constant/conts";
+import { sendContactEmail } from "../services/send_email";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -9,6 +12,36 @@ const fadeInUp = {
 };
 
 export default function Hero() {
+  const [appInput, setAppInput] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!appInput.trim()) {
+      toast.error("Please enter your email.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      // Sending test lead data using your sendContactEmail service
+      await sendContactEmail(
+        "Hero Quick Lead",
+        appInput.includes("@") ? appInput : "lead-via-hero@12t.app",
+        `New request from Hero input: ${appInput}`
+      );
+
+      toast.success("Request received! We'll start setting up your 12 testers.");
+      setAppInput("");
+    } catch (err: any) {
+      console.error("EmailJS error:", err?.text || err);
+      toast.error("Failed to submit request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="home"
@@ -35,8 +68,7 @@ export default function Hero() {
             ))}
           </div>
           <span>
-            Used by <strong className="text-zinc-900">hundreds</strong> of app
-            developers
+            Used by <strong className="text-zinc-900">hundreds</strong> of app developers
           </span>
         </div>
 
@@ -74,38 +106,51 @@ export default function Hero() {
           days, keep 1 day to submit with full confidence.
         </p>
 
-        {/* Combined Input & CTA Button */}
+        {/* Combined Input & CTA Form */}
         <div className="w-full max-w-lg flex flex-col gap-3 pt-2">
-          <div
+          <form
+            onSubmit={handleSubmit}
             className="flex items-center w-full bg-white border border-slate-200/90 rounded-2xl p-1.5 shadow-lg shadow-slate-100 transition-all focus-within:shadow-md"
-            style={{
-              borderColor: undefined,
-            }}
           >
             <div className="flex items-center justify-center pl-3 pr-2 text-slate-400">
               <Globe className="w-5 h-5 stroke-[1.8]" />
             </div>
+
             <input
               type="text"
               aria-label="app-url"
-              placeholder="your-app-url.com or package name"
+              value={appInput}
+              onChange={(e) => setAppInput(e.target.value)}
+              placeholder="your email here"
               className="w-full px-2 py-2.5 bg-transparent text-slate-800 placeholder-slate-400 text-sm font-medium focus:outline-none"
             />
+
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex-shrink-0 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs sm:text-sm font-bold text-white transition-all duration-200 cursor-pointer shadow-md"
+              type="submit"
+              disabled={isSubmitting}
+              whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+              className="flex-shrink-0 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs sm:text-sm font-bold text-white transition-all duration-200 cursor-pointer shadow-md disabled:opacity-70"
               style={{
                 backgroundColor: primary_color,
                 boxShadow: `0 4px 14px ${primary_color}45`,
               }}
             >
-              <span>Get 12 Testers</span>
-              <div className="flex h-5 w-5 items-center justify-center rounded-md bg-white/20">
-                <ArrowRight size={14} strokeWidth={2.5} />
-              </div>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Submitting...</span>
+                </>
+              ) : (
+                <>
+                  <span>Get 12 Testers</span>
+                  <div className="flex h-5 w-5 items-center justify-center rounded-md bg-white/20">
+                    <ArrowRight size={14} strokeWidth={2.5} />
+                  </div>
+                </>
+              )}
             </motion.button>
-          </div>
+          </form>
         </div>
 
         {/* Bottom Trust Badge */}
