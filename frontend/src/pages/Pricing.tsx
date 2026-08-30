@@ -87,7 +87,7 @@ export default function Pricing() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-16"
         >
-          Full 14-day closed testing compliance with real devices and zero upfront risk. Pay only after 13 days of verified engagement.
+          Full 14-day closed testing compliance with real devices and zero upfront risk. Pay only after 12 Days of verified engagement.
         </motion.p>
 
         {/* Pricing Cards Grid */}

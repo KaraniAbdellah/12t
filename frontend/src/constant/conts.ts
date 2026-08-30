@@ -23,13 +23,13 @@ export const STEPS = [
     step: "04",
     title: "Pay",
     description:
-      "After 13 days of genuine engagement, you need to pay for us to get production access.",
+      "After 12 Days of genuine engagement, you need to pay for us to get production access.",
   },
   {
     step: "05",
     title: "Apply for Production Access",
     description:
-      "With 13 days of genuine engagement complete, use our questionnaire guide to craft strong responses and submit your production access application with confidence.",
+      "With 12 Days of genuine engagement complete, use our questionnaire guide to craft strong responses and submit your production access application with confidence.",
   },
 ];
 

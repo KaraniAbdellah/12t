@@ -2,7 +2,7 @@
 
 A promotional website for a service that helps developers get **12 testers for Google Play Store apps within 14 days**.
 
-Users **do not pay until the testing period is almost finished**. Payment is made after 13 days, leaving 1 day for final submission.
+Users **do not pay until the testing period is almost finished**. Payment is made after 12 Days, leaving 1 day for final submission.
 
 ## Header
 
@@ -27,7 +27,7 @@ Users **do not pay until the testing period is almost finished**. Payment is mad
   * Real devices
   * Daily testing
   * Feedback
-  * Pay after 13 days
+  * Pay after 12 Days
 
 ## Pricing
 

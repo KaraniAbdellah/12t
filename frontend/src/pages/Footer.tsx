@@ -75,7 +75,7 @@ export default function Footer() {
         </h2>
 
         <p className="text-white/85 text-sm sm:text-base max-w-xl mb-8 leading-relaxed">
-          12 real testers on physical devices. Pay only after 13 days of verified daily engagement.
+          12 real testers on physical devices. Pay only after 12 Days of verified daily engagement.
         </p>
 
         <motion.a
