@@ -97,7 +97,7 @@ export default function Hero() {
           >
             Pay Only
           </span>{" "}
-          After 12 Days{" "}
+          After 10 Days{" "}
         </h1>
 
         {/* Subtitle Description */}
