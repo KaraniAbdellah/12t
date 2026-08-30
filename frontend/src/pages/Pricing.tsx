@@ -8,7 +8,7 @@ const COMMON_FEATURES = [
   "Actionable bug & crash reports",
   "PDF answering Google Play questionnaire",
   "Diverse hardware (Samsung, Xiaomi, Huawei...)",
-  "No payment until Day 13",
+  "No payment until Day 11",
   "1 remaining day for final submission",
 ];
 
@@ -218,7 +218,7 @@ export default function Pricing() {
         >
           <div className="flex items-center gap-1.5 text-emerald-600 font-semibold">
             <ShieldCheck className="w-4 h-4" />
-            <span>Pay on Day 13 only if satisfied</span>
+            <span>Pay on day 11 only if satisfied</span>
           </div>
           <span className="hidden sm:inline text-slate-300">•</span>
           <div className="flex items-center gap-2">

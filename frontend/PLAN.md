@@ -46,7 +46,7 @@ All plans include:
 * Feedback when features do not work
 * PDF answering Google Play tester-related questions
 * Testing on different devices (Samsung, Huawei, etc.)
-* **No payment until day 13**
+* **No payment until Day 11**
 * 1 remaining day for final submission
 
 Payment methods:

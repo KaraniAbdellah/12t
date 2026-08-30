@@ -157,7 +157,7 @@ export default function Hero() {
         <div className="flex items-center justify-center gap-2 pt-2 text-xs sm:text-sm text-slate-500">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/80 border border-slate-200/60 shadow-xs text-slate-600 font-medium">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Guaranteed compliance • Real hardware • Pay on day 13</span>
+            <span>Guaranteed compliance • Real hardware • Pay on day 11</span>
           </div>
         </div>
       </motion.div>
